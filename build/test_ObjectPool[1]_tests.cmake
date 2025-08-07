@@ -1,0 +1,7 @@
+add_test([=[ObjectPoolTest.GetAndRelease]=]  /home/username/VsCodeProjects/ObjectPool/build/test_ObjectPool [==[--gtest_filter=ObjectPoolTest.GetAndRelease]==] --gtest_also_run_disabled_tests)
+set_tests_properties([=[ObjectPoolTest.GetAndRelease]=]  PROPERTIES WORKING_DIRECTORY /home/username/VsCodeProjects/ObjectPool/build SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+add_test([=[ObjectPoolTest.ReserveIncreasesSize]=]  /home/username/VsCodeProjects/ObjectPool/build/test_ObjectPool [==[--gtest_filter=ObjectPoolTest.ReserveIncreasesSize]==] --gtest_also_run_disabled_tests)
+set_tests_properties([=[ObjectPoolTest.ReserveIncreasesSize]=]  PROPERTIES WORKING_DIRECTORY /home/username/VsCodeProjects/ObjectPool/build SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+add_test([=[ObjectPoolTest.ClearEmptiesPool]=]  /home/username/VsCodeProjects/ObjectPool/build/test_ObjectPool [==[--gtest_filter=ObjectPoolTest.ClearEmptiesPool]==] --gtest_also_run_disabled_tests)
+set_tests_properties([=[ObjectPoolTest.ClearEmptiesPool]=]  PROPERTIES WORKING_DIRECTORY /home/username/VsCodeProjects/ObjectPool/build SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+set(  test_ObjectPool_TESTS ObjectPoolTest.GetAndRelease ObjectPoolTest.ReserveIncreasesSize ObjectPoolTest.ClearEmptiesPool)
