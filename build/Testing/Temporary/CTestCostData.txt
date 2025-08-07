@@ -1,4 +1,4 @@
-ObjectPoolTest.GetAndRelease 4 0.00213251
-ObjectPoolTest.ReserveIncreasesSize 4 0.00224839
-ObjectPoolTest.ClearEmptiesPool 3 0.00236993
+ObjectPoolTest.GetAndRelease 6 0.00214109
+ObjectPoolTest.ReserveIncreasesSize 6 0.00238318
+ObjectPoolTest.ClearEmptiesPool 5 0.00244952
 ---

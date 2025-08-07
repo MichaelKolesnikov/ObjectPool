@@ -1,11 +1,12 @@
 #pragma once
-#include <set>
+#include <vector>
+#include <unordered_set>
 
 template <class T>
 class ObjectPool
 {
-    std::set<T *> freeObjects;
-    std::set<T *> takenObjects;
+    std::vector<T *> freeObjects;
+    std::unordered_set<T *> takenObjects;
 
 public:
     ObjectPool() // O(1)
@@ -22,28 +23,33 @@ public:
             return;
         }
         int missingObjectsNumber = n - size();
+        freeObjects.reserve(freeObjects.size() + missingObjectsNumber);
         while (missingObjectsNumber--)
         {
-            freeObjects.insert(new T());
+            freeObjects.push_back(new T());
         }
     }
-    T *get() // O(log(N))
+    T *get() // ~ O(1)
     {
         if (freeObjects.empty())
         {
-            freeObjects.insert(new T());
+            freeObjects.push_back(new T());
         }
-        auto it = freeObjects.begin();
-        T *ptrToReturn = *it;
-        freeObjects.erase(it);
+        T *ptrToReturn = freeObjects.back();
+        freeObjects.pop_back();
 
         takenObjects.insert(ptrToReturn);
         return ptrToReturn;
     }
-    void release(T *ptr) // O(log(N))
+    void release(T *ptr) // ~ O(1)
     {
-        freeObjects.insert(ptr);
-        takenObjects.erase(ptr);
+        auto it = takenObjects.find(ptr);
+        if (it == takenObjects.end())
+        {
+            return;
+        }
+        takenObjects.erase(it);
+        freeObjects.push_back(ptr);
     }
     void clear() // O(N)
     {
