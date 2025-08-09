@@ -7,7 +7,6 @@ mkdir ObjectPool/build
 cd ObjectPool/build
 cmake ..
 make
-sudo cp libObjectPool.so /usr/local/lib/
 sudo cp -r ../include/ObjectPool.h /usr/local/include/
 sudo ldconfig
 ```
@@ -21,6 +20,6 @@ sudo cp ./build/lib/libgtest* /usr/lib
 ```
 ## Uninstalling
 ```bash
-sudo rm /usr/local/lib/libObjectPool.so
 sudo rm /usr/local/include/ObjectPool.h
+sudo ldconfig
 ```

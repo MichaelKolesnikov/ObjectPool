@@ -30,10 +30,10 @@ TEST(ObjectPoolTest, ReserveIncreasesSize)
 {
     ObjectPool<Dummy> pool;
 
-    pool.reserve(5);
+    pool.reserveObjects(5);
     EXPECT_GE(pool.size(), 5);
 
-    pool.reserve(3);
+    pool.reserveObjects(3);
     EXPECT_GE(pool.size(), 5);
 }
 
@@ -41,7 +41,7 @@ TEST(ObjectPoolTest, ClearEmptiesPool)
 {
     ObjectPool<Dummy> pool;
 
-    pool.reserve(3);
+    pool.reserveObjects(3);
     EXPECT_GE(pool.size(), 3);
 
     pool.clear();

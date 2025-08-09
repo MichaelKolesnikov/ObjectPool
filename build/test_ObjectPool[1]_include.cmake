@@ -1,5 +1,0 @@
-if(EXISTS "/home/username/VsCodeProjects/ObjectPool/build/test_ObjectPool[1]_tests.cmake")
-  include("/home/username/VsCodeProjects/ObjectPool/build/test_ObjectPool[1]_tests.cmake")
-else()
-  add_test(test_ObjectPool_NOT_BUILT test_ObjectPool_NOT_BUILT)
-endif()

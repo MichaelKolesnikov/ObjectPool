@@ -1,1 +1,0 @@
-/usr/bin/g++ -g CMakeFiles/test_ObjectPool.dir/tests/test_ObjectPool.cpp.o -o test_ObjectPool  -Wl,-rpath,/home/username/VsCodeProjects/ObjectPool/build lib/libgtest_main.a libObjectPool.so lib/libgtest.a 

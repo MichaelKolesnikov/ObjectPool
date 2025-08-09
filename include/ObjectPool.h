@@ -1,6 +1,6 @@
 #pragma once
-#include <vector>
 #include <unordered_set>
+#include <vector>
 
 template <class T>
 class ObjectPool
@@ -17,6 +17,15 @@ public:
         clear();
     }
     void reserve(size_t n) // O(n)
+    {
+        if (capacity() >= n)
+        {
+            return;
+        }
+        int missingPlacesNumber = n - capacity();
+        freeObjects.reserve(freeObjects.capacity() + missingPlacesNumber);
+    }
+    void reserveObjects(size_t n) // O(n)
     {
         if (size() >= n)
         {
@@ -64,8 +73,12 @@ public:
         freeObjects.clear();
         takenObjects.clear();
     }
-    size_t size() // O(1)
+    size_t size() const // O(1)
     {
         return freeObjects.size() + takenObjects.size();
+    }
+    size_t capacity() const // O(1)
+    {
+        return freeObjects.capacity() + takenObjects.size();
     }
 };

@@ -7,7 +7,7 @@ using namespace std;
 int main()
 {
     ObjectPool<int> pool;
-    pool.reserve(3);
+    pool.reserveObjects(3);
     std::vector<int *> v;
     for (int _ = 0; _ < 4; ++_)
     {

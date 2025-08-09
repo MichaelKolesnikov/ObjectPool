@@ -5,11 +5,10 @@ project(ObjectPoolProject VERSION 1.0 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_library(ObjectPool SHARED
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/ObjectPool.cpp
+add_library(ObjectPool INTERFACE
 )
 
-target_include_directories(ObjectPool PUBLIC
+target_include_directories(ObjectPool INTERFACE
     ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 
