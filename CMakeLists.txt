@@ -12,6 +12,8 @@ target_include_directories(ObjectPool INTERFACE
     ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 
+install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/ DESTINATION include)
+
 add_executable(main main.cpp)
 target_link_libraries(main PRIVATE ObjectPool)
 
@@ -23,7 +25,7 @@ FetchContent_Declare(
     GIT_REPOSITORY https://github.com/google/googletest.git
     GIT_TAG main
 )
-set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+set(INSTALL_GTEST OFF CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 include(GoogleTest)
 add_executable(test_ObjectPool tests/test_ObjectPool.cpp)

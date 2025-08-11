@@ -7,7 +7,7 @@ mkdir ObjectPool/build
 cd ObjectPool/build
 cmake ..
 make
-sudo cp -r ../include/ObjectPool.h /usr/local/include/
+sudo make install
 sudo ldconfig
 ```
 ## Installation google-tests
